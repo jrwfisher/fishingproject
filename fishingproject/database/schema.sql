@@ -3,15 +3,10 @@ DROP TABLE IF EXISTS tacklebox, region_species, region, catch, locale, app_user,
 CREATE TABLE species (
 	fish_id serial,
 	fish_name varchar(100),
+    description varchar(500),
 	CONSTRAINT PK_fish_id PRIMARY KEY(fish_id)
 );
-INSERT INTO species (fish_name)
-VALUES ('Speckled Trout'), ('Redfish'), ('Snook'), ('Cobia'), ('Tarpon'), ('Swordfish'),
-	   ('Flounder'), ('Gag Grouper'), ('Bluefish'), ('Black Drum'), ('Mahi-mahi'),
-	   ('Tripletail'), ('Bonefish'), ('Red Snapper'), ('Lane Snapper'), ('Mangrove Snapper'),
-	   ('Red Grouper'), ('Spanish Mackerel'), ('Kingfish'), ('Amberjack'), ('Jack Crevalle'),
-	   ('Roosterfish'), ('Hogfish'), ('Sheepshead'), ('Bonnethead Shark'), ('Blacktip Shark'),
-	   ('Grunt');
+
 CREATE TABLE app_user (
 	user_id serial,
 	username varchar(50),
