@@ -14,12 +14,11 @@ public class TackleboxController {
     @Autowired
     private LureDao lureDao;
 
+    @RequestMapping(path = "/tacklebox", method = RequestMethod.POST)
     public void addLure(Lure lure) {
         lureDao.addLure(lure);
     }
-    public void deleteLure(Lure lure) {
-        lureDao.deleteLure(lure);
-    }
+
     @RequestMapping(path = "/tacklebox", method = RequestMethod.GET)
     public List<Lure> getAllLures() {
         return lureDao.getAllLures();

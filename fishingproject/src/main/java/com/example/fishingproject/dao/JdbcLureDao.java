@@ -22,12 +22,6 @@ public class JdbcLureDao implements LureDao {
         String lureType = lure.getLureType();
         jdbcTemplate.update(sql, lureName, lureType);
     }
-    @Override
-    public void deleteLure(Lure lure) {
-        String sql = "DELETE FROM tacklebox WHERE lure_name = ?";
-        String lureName = lure.getLureName();
-        jdbcTemplate.update(sql, lureName);
-    }
 
     @Override
     public List<Lure> getAllLures() {

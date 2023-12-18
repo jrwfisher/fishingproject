@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface LureDao {
     public void addLure(Lure lure);
-    public void deleteLure(Lure lure);
     public List<Lure> getAllLures();
 
 }
