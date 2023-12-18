@@ -1,6 +1,6 @@
 package com.example.fishingproject.model;
 
-public class UniversalTacklebox {
+public class Lure {
     private int lureId;
     private String lureName;
     private String lureType;

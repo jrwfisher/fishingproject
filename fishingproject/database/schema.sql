@@ -1,7 +1,7 @@
 START TRANSACTION;
 DROP TABLE IF EXISTS tacklebox, region_species, region, catch, locale, app_user, species;
 CREATE TABLE species (
-	fish_id serial,
+	fish_id serial UNIQUE,
 	fish_name varchar(100),
     description varchar(500),
 	CONSTRAINT PK_fish_id PRIMARY KEY(fish_id)
@@ -33,7 +33,7 @@ CREATE TABLE catch (
 	CONSTRAINT FK_fish_id FOREIGN KEY (fish_id) REFERENCES species(fish_id)
 );
 CREATE TABLE region (
-	region_id serial,
+	region_id serial UNIQUE,
 	region_name varchar(50),
 	CONSTRAINT PK_region_id PRIMARY KEY (region_id)
 );
@@ -44,7 +44,7 @@ CREATE TABLE region_species (
 	CONSTRAINT FK_species_id FOREIGN KEY (species_id) REFERENCES species(fish_id)
 );
 CREATE TABLE tacklebox (
-	lure_id serial,
+	lure_id serial UNIQUE,
 	lure_name varchar(100),
     lure_type varchar(100),
 	CONSTRAINT PK_lure_id PRIMARY KEY (lure_id)
