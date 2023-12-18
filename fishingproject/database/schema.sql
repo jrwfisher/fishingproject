@@ -45,9 +45,14 @@ CREATE TABLE region_species (
 );
 CREATE TABLE tacklebox (
 	lure_id serial,
-	user_id int,
 	lure_name varchar(100),
-	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES app_user(user_id),
+    lure_type varchar(100),
 	CONSTRAINT PK_lure_id PRIMARY KEY (lure_id)
+);
+CREATE TABLE user_tacklebox (
+    lure_id int,
+    user_id int,
+    CONSTRAINT FK_lure_id FOREIGN KEY (lure_id) REFERENCES tacklebox (lure_id),
+    CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES app_user (user_id)
 );
 COMMIT;
