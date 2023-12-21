@@ -1,9 +1,11 @@
 <template>
  <div>
     <h1>Fish</h1>
-    <ul>
+    
+    <button @click="showAllFish">Display All Fish</button>
+    <ul v-if="showFish">
         <li v-for="fish in $store.state.fish" :key="fish.id" class="list-item">
-            {{fish.name}}
+            {{fish.name}} {{ fish.id }}
         </li>
     </ul>
  </div>
@@ -18,9 +20,14 @@ export default {
   },
     data() {
         return {
+            showFish: false,
+            selectedRegion: "",
         }
     },
     methods: {
+        showAllFish() {
+            this.showFish = !this.showFish
+        }
 
     },
     created() {

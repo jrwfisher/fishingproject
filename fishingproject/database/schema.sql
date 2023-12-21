@@ -39,9 +39,9 @@ CREATE TABLE region (
 );
 CREATE TABLE region_species (
 	region_id int,
-	species_id int,
+	fish_name varchar(100),
 	CONSTRAINT FK_region_id FOREIGN KEY (region_id) REFERENCES region(region_id),
-	CONSTRAINT FK_species_id FOREIGN KEY (species_id) REFERENCES species(fish_id)
+	CONSTRAINT FK_fish_name FOREIGN KEY (fish_name) REFERENCES species(fish_name)
 );
 CREATE TABLE tacklebox (
 	lure_id serial UNIQUE,
