@@ -14,25 +14,12 @@ INSERT INTO tacklebox  (lure_name, lure_type)
 VALUES ('MirrOlure', 'Hard Plastic'), ('Gulp Shrimp', 'Soft Plastic'), ('Bucktail Jig', 'Jig'),
        ('Shrimp', 'Live Bait'), ('Pinfish', 'Live Bait'), ('Mullet', 'Live Bait'), ('Crab', 'Live Bait');
 
-INSERT INTO region_species (region_name, fish_name)
-VALUES ('Gulf of Mexico', 'Speckled Trout'), ('Gulf of Mexico', 'Redfish'), ('Gulf of Mexico', 'Snook'),
-       ('Gulf of Mexico', 'Cobia'), ('Gulf of Mexico', 'Tarpon'), ('Gulf of Mexico', 'Swordfish'),
-       ('Gulf of Mexico', 'Flounder'), ('Gulf of Mexico', 'Gag Grouper'), ('Gulf of Mexico', 'Bluefish'),
-       ('Gulf of Mexico', 'Black Drum'), ('Gulf of Mexico', 'Mahi-mahi'), ('Gulf of Mexico', 'Tripletail'),
-       ('Gulf of Mexico', 'Bonefish'), ('Gulf of Mexico', 'Red Snapper'), ('Gulf of Mexico', 'Lane Snapper'),
-       ('Gulf of Mexico', 'Mangrove Snapper'), ('Gulf of Mexico', 'Red Grouper'), ('Gulf of Mexico', 'Spanish Mackerel'),
-       ('Gulf of Mexico', 'Kingfish'), ('Gulf of Mexico', 'Amberjack'), ('Gulf of Mexico', 'Jack Crevalle'),
-       ('Gulf of Mexico', 'Roosterfish'), ('Gulf of Mexico', 'Hogfish'), ('Gulf of Mexico', 'Sheepshead'),
-       ('Gulf of Mexico', 'Bonnethead Shark'), ('Gulf of Mexico', 'Blacktip Shark'), ('Gulf of Mexico', 'Grunt'),
-       ('America, Atlantic', 'Speckled Trout'), ('America, Atlantic', 'Redfish'), ('America, Atlantic', 'Snook'),
-       ('America, Atlantic', 'Cobia'), ('America, Atlantic', 'Tarpon'), ('America, Atlantic', 'Swordfish'),
-       ('America, Atlantic', 'Flounder'), ('America, Atlantic', 'Gag Grouper'), ('America, Atlantic', 'Bluefish'),
-       ('America, Atlantic', 'Black Drum'), ('America, Atlantic', 'Mahi-mahi'), ('America, Atlantic', 'Tripletail'),
-       ('America, Atlantic', 'Bonefish'), ('America, Atlantic', 'Red Snapper'), ('America, Atlantic', 'Lane Snapper'),
-       ('America, Atlantic', 'Mangrove Snapper'), ('America, Atlantic', 'Red Grouper'), ('America, Atlantic', 'Spanish Mackerel'),
-       ('America, Atlantic', 'Kingfish'), ('America, Atlantic', 'Amberjack'), ('America, Atlantic', 'Jack Crevalle'),
-       ('America, Atlantic', 'Roosterfish'), ('America, Atlantic', 'Hogfish'), ('America, Atlantic', 'Sheepshead'),
-       ('America, Atlantic', 'Bonnethead Shark'), ('America, Atlantic', 'Blacktip Shark'), ('America, Atlantic', 'Grunt');
+INSERT INTO region_species (region_id, fish_id)
+VALUES (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9), (1, 10), (1, 11), (1, 12),
+       (1, 13), (1, 14), (1, 15), (1, 16), (1, 17), (1, 18), (1, 19), (1, 20), (1, 21), (1, 22), (1, 23),
+       (1, 24), (1, 25), (1, 26), (1, 27), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (2, 8),
+       (2, 9), (2, 10), (2, 11), (2, 12), (2, 13), (2, 14), (2, 15), (2, 16), (2, 17), (2, 18), (2, 19),
+       (2, 20), (2, 21), (2, 22), (2, 23), (2, 24), (2, 25), (2, 26), (2, 27);
 
 
 

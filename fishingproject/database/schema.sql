@@ -4,7 +4,7 @@ CREATE TABLE species (
 	fish_id serial UNIQUE,
 	fish_name varchar(100),
     description varchar(500),
-	CONSTRAINT PK_fish_name PRIMARY KEY(fish_name)
+	CONSTRAINT PK_fish_id PRIMARY KEY(fish_id)
 );
 
 CREATE TABLE app_user (
@@ -35,13 +35,13 @@ CREATE TABLE catch (
 CREATE TABLE region (
 	region_id serial UNIQUE,
 	region_name varchar(50),
-	CONSTRAINT PK_region_name PRIMARY KEY (region_name)
+	CONSTRAINT PK_region_id PRIMARY KEY (region_id)
 );
 CREATE TABLE region_species (
-	region_name varchar(50),
-	fish_name varchar(100),
-	CONSTRAINT FK_region_name FOREIGN KEY (region_name) REFERENCES region(region_name),
-	CONSTRAINT FK_fish_name FOREIGN KEY (fish_name) REFERENCES species(fish_name)
+	region_id int,
+	fish_id int,
+	CONSTRAINT FK_region_id FOREIGN KEY (region_id) REFERENCES region(region_id),
+	CONSTRAINT FK_fish_id FOREIGN KEY (fish_id) REFERENCES species(fish_id)
 );
 CREATE TABLE tacklebox (
 	lure_id serial UNIQUE,
