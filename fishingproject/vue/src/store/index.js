@@ -7,15 +7,20 @@ export default createStore({
       {
         "name": "",
         "description": "",
-        "regions": [],
       }
-    ]
+    ],
+    "regions": [
+      {"name": ""}
+    ],
   },
   getters: {
   },
   mutations: {
-    GET_ALL_FISH(state, fish) {
+    SET_ALL_FISH(state, fish) {
       state.fish = fish;
+    },
+    SET_REGIONS(state, regions) {
+      state.regions = regions;
     }
   },
   actions: {

@@ -1,6 +1,9 @@
 <template>
  <div>
     <h1>Fish</h1>
+    <select>
+        <option v-for="region in $store.state.regions" :key="region.id" value="option1">{{ region.name }}</option>
+    </select>
     
     <button @click="showAllFish">Display All Fish</button>
     <ul v-if="showFish">
@@ -32,7 +35,10 @@ export default {
     },
     created() {
         FishService.fetchAllFish().then(response => {
-            this.$store.commit('GET_ALL_FISH', response.data);
+            this.$store.commit('SET_ALL_FISH', response.data);
+        })
+        FishService.fetchRegions().then(response => {
+            this.$store.commit('SET_REGIONS', response.data);
         })
     }
 

@@ -16,7 +16,7 @@ public class RegionController {
     @Autowired
     private RegionDao regionDao;
 
-    @RequestMapping(path = "/region", method = RequestMethod.GET)
+    @RequestMapping(path = "/regions", method = RequestMethod.GET)
     public List<Region> getAllRegions() {
         return regionDao.getAllRegions();
     }
