@@ -11,6 +11,7 @@ CREATE TABLE app_user (
 	user_id serial,
 	username varchar(50),
 	password_hash varchar(200) NOT NULL,
+    role varchar(50) NOT NULL,
 	CONSTRAINT PK_user_id PRIMARY KEY (user_id)
 );  
 CREATE TABLE locale (

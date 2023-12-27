@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>Fish</h1>
+        <h1>Fish Directory By Region</h1>
+        <p>This is a work in progress, early development will focus on fish of Florida</p>
         <form>
             <select v-model="selectedRegion">
                 <option v-for="region in $store.state.regions" :key="region.id">{{ region.name }}</option>
@@ -31,10 +32,12 @@ export default {
     },
     methods: {
         showAllFish() {
-            FishService.fetchFishByRegion(this.selectedRegion).then(response => {
-                this.$store.commit('SET_ALL_FISH', response.data);
-            })
-            this.showFish = true;
+            if (this.selectedRegion != "") {
+                FishService.fetchFishByRegion(this.selectedRegion).then(response => {
+                    this.$store.commit('SET_ALL_FISH', response.data);
+                })
+                this.showFish = true;
+            }
         }
 
     },

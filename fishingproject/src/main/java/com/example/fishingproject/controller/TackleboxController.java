@@ -23,4 +23,5 @@ public class TackleboxController {
     public List<Lure> getAllLures() {
         return lureDao.getAllLures();
     }
+
 }
