@@ -7,7 +7,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -56,27 +56,22 @@ public class JdbcUserDao implements UserDao{
         return user;
     }
 
-    @Override
+        @Override
     public User createUser(RegisterUserDto user) {
-        return null;
+        User newUser = null;
+        String insertUserSql = "INSERT INTO app_user (username, password_hash, role) values (?, ?, ?) RETURNING user_id";
+        String password_hash = new BCryptPasswordEncoder().encode(user.getPassword());
+        String ssRole = user.getRole().toUpperCase().startsWith("ROLE_") ? user.getRole().toUpperCase() : "ROLE_" + user.getRole().toUpperCase();
+        try {
+            int newUserId = jdbcTemplate.queryForObject(insertUserSql, int.class, user.getUsername(), password_hash, ssRole);
+            newUser = getUserById(newUserId);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+        return newUser;
     }
-
-    //    @Override
-//    public User createUser(RegisterUserDto user) {
-//        User newUser = null;
-//        String insertUserSql = "INSERT INTO app_user (username, password_hash, role) values (?, ?, ?) RETURNING user_id";
-//        String password_hash = new BCryptPasswordEncoder().encode(user.getPassword());
-//        String ssRole = user.getRole().toUpperCase().startsWith("ROLE_") ? user.getRole().toUpperCase() : "ROLE_" + user.getRole().toUpperCase();
-//        try {
-//            int newUserId = jdbcTemplate.queryForObject(insertUserSql, int.class, user.getUsername(), password_hash, ssRole);
-//            newUser = getUserById(newUserId);
-//        } catch (CannotGetJdbcConnectionException e) {
-//            throw new DaoException("Unable to connect to server or database", e);
-//        } catch (DataIntegrityViolationException e) {
-//            throw new DaoException("Data integrity violation", e);
-//        }
-//        return newUser;
-//    }
     public User mapRowToUser(SqlRowSet rowSet) {
         User user = new User();
         user.setId(rowSet.getInt("user_id"));
