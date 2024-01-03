@@ -1,6 +1,7 @@
 package com.example.fishingproject.controller;
 
 import com.example.fishingproject.dao.LureDao;
+import com.example.fishingproject.dao.TackleboxDao;
 import com.example.fishingproject.model.Lure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,8 @@ import java.util.List;
 public class TackleboxController {
     @Autowired
     private LureDao lureDao;
+    @Autowired
+    private TackleboxDao tackleboxDao;
 
     @RequestMapping(path = "/tacklebox", method = RequestMethod.POST)
     public void addLure(Lure lure) {
@@ -24,4 +27,8 @@ public class TackleboxController {
         return lureDao.getAllLures();
     }
 
+    @RequestMapping(path = "/tacklebox/{userId}", method = RequestMethod.GET)
+    public List<Lure> getLuresByUserId(int userId) {
+        return tackleboxDao.getTacklebox(userId);
+    }
 }
