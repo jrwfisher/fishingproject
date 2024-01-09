@@ -10,7 +10,7 @@ public class JdbcTackleboxDao implements TackleboxDao{
     //Adding lures to user's tacklebox
     @Override
     public void addLure(Lure lure) {
-
+        String sql = "INSERT INTO tacklebox (lure_name) VALUES (?)";
     }
 
     //Getting all lures from user's tacklebox
